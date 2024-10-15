@@ -1,0 +1,58 @@
+plugins {
+    id 'org.springframework.boot' version '3.2.0' // или актуальная версия
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // Spring Framework
+
+    // Основной Spring Boot Starter
+    implementation 'org.springframework.boot:spring-boot-starter'
+    // Для веб-приложений
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // Для конфигураций
+    implementation 'org.springframework.boot:spring-boot-configuration-processor'
+    // Для автоматической перезагрузки и разработки
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    // Для мониторинга
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Зависимость для работы с VK API
+    implementation 'com.vk.api:sdk:1.0.16'
+
+    // Зависимость для работы с Telegram API
+    // https://mvnrepository.com/artifact/org.telegram/telegrambots
+    implementation group: 'org.telegram', name: 'telegrambots', version: '6.9.7.1'
+    implementation 'org.telegram:telegrambots-abilities:6.9.7.1'
+
+    // Зависимость для работы с постами через JSON
+    implementation group: 'org.json', name: 'json', version: '20090211'
+
+
+    // Логирование (по желанию)
+    implementation 'org.slf4j:slf4j-api:2.0.7'
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
+
+    // Для выполнения HTTP-запросов, если потребуется
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // Библиотека Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

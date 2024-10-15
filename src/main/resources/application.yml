@@ -1,0 +1,40 @@
+telegram:
+  # Ссылка или ID Telegram канала ParserBotTest
+  channel: -1002451356715
+  # Токен телеграм бота
+  botToken: 7314567198:AAFjOVu22Rm16hxMhXQrQWAkhEnhHn_pUVU
+  # Имя бота
+  botUsername: WallEPCbot
+
+vk:
+  # Токен группы VK для подключения бота в администраторы группы
+  tokenGroup: vk1.a.cEo1rZGWUieE0DzcGNyrzeulBk7A46wsyb9WteIc7gb3yHXkKOVS7JWBvpiLnL4LNs9nZaHMrqzfzsM0IfSKVyOmka1B69vNFBaGym_zmYabFAowteGG4WcZaAlnCehDs83N7NCLc-kbMm2-aOe_3rofXV1FyX_zjekvrsN8at1BuqZRo92goawUti_-xBvXuNo-G5pTEyFH-g27iUZTqA
+  # Токен приложения VK
+  tokenApp: 173a6e10173a6e10173a6e10c0142540b21173a173a6e1071cfcb3a0261186f167264c2
+  # Частичное название ссылки на VK канал (например, vk.com/example)
+  domain: donetsk_walle
+  groupID: -227662734
+  # userID: 30294673 # ID администратора группы
+
+filepath:
+  lastPostID: "src/data/lastPostID.txt"
+
+request:
+  # firstCount: 20 # Ограничение постов в минуту при первом запуске
+  count: 5  # Количество постов (min = 2, max = 100)
+  filter: owner  # Фильтр постов: "owner", "others", "all", "postponed", "suggests"
+
+settings:
+  timeToSleep: 600000  # Время ожидания между циклами (в миллисекундах) (10 минут)
+
+  # для последующей доработки проекта
+
+  # skipReposts: true  # Не парсить репосты
+  # skipAudio # Не парсить аудио
+  # skipVideo: true  # Не парсить видео
+  # skipDocument: true # Не парсить документы
+
+# filtering:
+  # whitelist: '[]'  # Список слов для отбора постов
+  # blacklist: '[]'  # Список слов для исключения постов
+
