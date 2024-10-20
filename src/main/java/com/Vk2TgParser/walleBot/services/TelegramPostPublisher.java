@@ -1,17 +1,15 @@
-package com.KarpiukJava.walleBot.services;
+package com.Vk2TgParser.walleBot.services;
 
-import com.KarpiukJava.walleBot.Configurations.PostData;
+import com.Vk2TgParser.walleBot.Configurations.PostData;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import lombok.extern.slf4j.Slf4j;
+import org.telegram.telegrambots.bots.DefaultAbsSender;
 import org.telegram.telegrambots.meta.api.methods.send.SendMediaGroup;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
-import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.media.InputMedia;
 import org.telegram.telegrambots.meta.api.objects.media.InputMediaPhoto;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import org.telegram.telegrambots.bots.DefaultAbsSender;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,19 +30,22 @@ public class TelegramPostPublisher {
     public void sendPostsToTelegram(List<PostData> posts) {
         for (PostData postData : posts) {
             try {
-                // Отправляем текст с первым фото
+                // Отправляем первое сообщение с текстом и ссылкой на первое фото
+                log.info("Отправляем текст с ссылкой на первое фото: {}", postData.getText());
                 if (!postData.getPhotoUrls().isEmpty()) {
-                    SendPhoto sendPhoto = new SendPhoto();
-                    sendPhoto.setChatId(channelId);
-                    sendPhoto.setPhoto(new InputFile(postData.getPhotoUrls().getFirst())); // Первое фото
-                    sendPhoto.setCaption(postData.getText());  // Текст поста вместе с первым фото
-                    telegramBot.execute(sendPhoto);  // Отправляем первое фото и текст
+                    SendMessage message = new SendMessage();
+                    message.setChatId(channelId);
+                    String textWithLink = postData.getText() + "\n\nСсылка на фото: " + postData.getPhotoUrls().get(0);
+                    message.setText(textWithLink);  // Текст поста с первой ссылкой на фото
+                    telegramBot.execute(message);   // Отправляем текст с ссылкой на фото
+                    log.info("Отправлено сообщение с текстом и ссылкой на фото: {}", postData.getPhotoUrls().get(0));
                 } else {
                     // Если фото нет, просто отправляем текст
                     SendMessage message = new SendMessage();
                     message.setChatId(channelId);
                     message.setText(postData.getText());
                     telegramBot.execute(message);
+                    log.info("Отправлено сообщение с текстом");
                 }
 
                 // Отправляем остальные фотографии как медиа группу
@@ -60,6 +61,7 @@ public class TelegramPostPublisher {
                     sendMediaGroup.setChatId(channelId);
                     sendMediaGroup.setMedias(media);
                     telegramBot.execute(sendMediaGroup);  // Отправляем медиа группу с оставшимися фото
+                    log.info("Отправлена медиа-группа с {} фото", postData.getPhotoUrls().size() - 1);
                 }
             } catch (TelegramApiException e) {
                 log.error("Ошибка при отправке поста в Telegram", e);

@@ -1,4 +1,4 @@
-package com.KarpiukJava.walleBot;
+package com.Vk2TgParser.walleBot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

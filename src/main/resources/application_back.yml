@@ -10,25 +10,20 @@ telegram:
   botUsername: WallEPCbot
 
 vk:
-  # Персональный токен доступа, генерируется на сайте https://vkhost.github.io/
-  accessToken: vk1.a.nBKdz-AP6FF0RhoEWIfZEG9T2LpfL2NFKjQJZLGH5Zh8XYv7mPBcSYw-sXwpsjhuU2xlLs39Z4RVTzf4MlzkZWEyIoOQk6dxJrTo79Ue1rfBqNOwnQjjQGZfpZtudqcj-4QHKP8Z40f2mneXMohj-g9sgky10g9mqSgMvRDwcX1OYOmTEgWRdigAS_Ga2izPiDQGEr664r57NofivN9l2A
   # Токен группы VK для использования LongPoll API
-  groupToken: vk1.a.sTGwU_FyaL-DxZdr0lRLo1ExC-E0wcM1QuX4tKQ40mf9N-Bv-jxATlL8zkF-CPY7senEHksyqFgLl5OJtvhyGnornltrZ5YkdzVSzKWsNQ0FgIrkwxvfJNrLKVoWLvp8RJKi9SLzFQ7dfY6_GLDr1aF0eprZD1dg6Mh4kkAykEp1JDQNtcpl7GxVTIJDADlUkTcvwowNxxrBC2uJmo3gTg
-  # ID группы
-  groupID: 161071862
-  # Частичное название ссылки на VK канал (например, vk.com/example)
-  domain: donetsk_walle
-  # ID администратора
-  adminID: 30294673
+  tokenGroup: vk1.a.cEo1rZGWUieE0DzcGNyrzeulBk7A46wsyb9WteIc7gb3yHXkKOVS7JWBvpiLnL4LNs9nZaHMrqzfzsM0IfSKVyOmka1B69vNFBaGym_zmYabFAowteGG4WcZaAlnCehDs83N7NCLc-kbMm2-aOe_3rofXV1FyX_zjekvrsN8at1BuqZRo92goawUti_-xBvXuNo-G5pTEyFH-g27iUZTqA
   # Токен приложения VK
-  # clientSecret: K4EfUlnEty2vjTx1mq19
-  # serviceToken: 173a6e10173a6e10173a6e10c0142540b21173a173a6e1071cfcb3a0261186f167264c2
+  serviceToken: K4EfUlnEty2vjTx1mq19
+  #serviceToken: 173a6e10173a6e10173a6e10c0142540b21173a173a6e1071cfcb3a0261186f167264c2
+  # Частичное название ссылки на VK канал (например, vk.com/example)
+  domain: parcerbottest
+  # ID группы
+  groupID: -227662734
   # ID приложения
-  # appID: 52375202
-
+  appID: 52375202
 
 filepath:
-  lastPostID: "./src/data/lastPostID.txt"
+  lastPostID: "src/data/lastPostID.txt"
 
 request:
   firstCount: 10 # Ограничение постов в минуту при первом запуске
@@ -45,7 +40,7 @@ settings:
   # skipVideo: true  # Не парсить видео
   # skipDocument: true # Не парсить документы
 
-  # filtering:
+# filtering:
   # whitelist: '[]'  # Список слов для отбора постов
   # blacklist: '[]'  # Список слов для исключения постов
 

@@ -1,4 +1,4 @@
-package com.KarpiukJava.walleBot.Controllers;
+package com.Vk2TgParser.walleBot.Controllers;
 
 import org.springframework.stereotype.Component;
 

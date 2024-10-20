@@ -1,4 +1,4 @@
-package com.KarpiukJava.walleBot.bot;
+package com.Vk2TgParser.walleBot.bot;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;

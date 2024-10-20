@@ -1,6 +1,6 @@
-package com.KarpiukJava.walleBot.Configurations;
+package com.Vk2TgParser.walleBot.Configurations;
 
-import com.KarpiukJava.walleBot.bot.TelegramBot;
+import com.Vk2TgParser.walleBot.bot.TelegramBot;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

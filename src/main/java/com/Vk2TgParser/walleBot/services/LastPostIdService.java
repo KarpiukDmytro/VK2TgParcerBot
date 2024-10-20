@@ -1,4 +1,4 @@
-package com.KarpiukJava.walleBot.services;
+package com.Vk2TgParser.walleBot.services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

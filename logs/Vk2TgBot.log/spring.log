@@ -1,0 +1,349 @@
+2024-10-20T17:10:51.697+02:00  INFO 4780 --- [restartedMain] c.K.walleBot.VK2TgParserBotApplication   : Starting VK2TgParserBotApplication using Java 19.0.1 with PID 4780 (C:\Users\DrGremlin\IdeaProjects\VK2TgParserBot\build\classes\java\main started by DrGremlin in C:\Users\DrGremlin\IdeaProjects\VK2TgParserBot)
+2024-10-20T17:10:51.698+02:00 DEBUG 4780 --- [restartedMain] c.K.walleBot.VK2TgParserBotApplication   : Running with Spring Boot v3.2.0, Spring v6.1.1
+2024-10-20T17:10:51.699+02:00  INFO 4780 --- [restartedMain] c.K.walleBot.VK2TgParserBotApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-10-20T17:10:51.741+02:00  INFO 4780 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-20T17:10:51.741+02:00  INFO 4780 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-20T17:10:52.962+02:00  INFO 4780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-10-20T17:10:52.970+02:00  INFO 4780 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-20T17:10:52.971+02:00  INFO 4780 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-10-20T17:10:53.021+02:00  INFO 4780 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-20T17:10:53.021+02:00  INFO 4780 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1279 ms
+2024-10-20T17:10:53.275+02:00  INFO 4780 --- [restartedMain] c.K.walleBot.services.VKWallPostParser   : Инициализация VKWallPostParser с adminID: 30294673 и accessToken: vk1.a.nBKdz-AP6FF0RhoEWIfZEG9T2LpfL2NFKjQJZLGH5Zh8XYv7mPBcSYw-sXwpsjhuU2xlLs39Z4RVTzf4MlzkZWEyIoOQk6dxJrTo79Ue1rfBqNOwnQjjQGZfpZtudqcj-4QHKP8Z40f2mneXMohj-g9sgky10g9mqSgMvRDwcX1OYOmTEgWRdigAS_Ga2izPiDQGEr664r57NofivN9l2A
+2024-10-20T17:10:53.613+02:00  INFO 4780 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-20T17:10:53.619+02:00  INFO 4780 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-10-20T17:10:53.660+02:00  INFO 4780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-10-20T17:10:53.672+02:00  INFO 4780 --- [restartedMain] c.K.walleBot.VK2TgParserBotApplication   : Started VK2TgParserBotApplication in 2.348 seconds (process running for 2.775)
+2024-10-20T17:11:03.694+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.PostSchedulerService      : Начало проверки новых записей на стене...
+2024-10-20T17:11:03.695+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Запрашиваем последний пост с домена: donetsk_walle с фильтром: OWNER
+2024-10-20T17:11:04.411+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Получен последний пост с ID: 5089
+2024-10-20T17:11:04.411+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.PostSchedulerService      : Последний пост в файле: 0. Самый свежий пост: 6083. Разница: 6083
+2024-10-20T17:11:04.411+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.PostSchedulerService      : Обрабатываем старые посты, начиная с ID: 0
+2024-10-20T17:11:04.411+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.PostSchedulerService      : Обрабатываем старые посты с ID: 0 и offset: 0
+2024-10-20T17:11:04.411+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Запрашиваем посты начиная с ID: 0 с количеством: 10 и смещением: 0
+2024-10-20T17:11:05.468+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Обрабатываем пост с ID: 5089
+2024-10-20T17:11:05.469+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-67.userapi.com/s/v1/ig2/fKF9oQhv0n9N26cfHHlGbicHMpJVw_UBAlxjg--BXX2U_ozZ9YRoVLkqaF-p8CoeNOEPmp-dMtFU9Er945_sVHD7.jpg?quality=96&as=32x21,48x32,72x48,108x71,160x106,240x159,360x238,480x317,540x357,640x423,720x476,1080x714,1280x846,1440x952,2560x1692&from=bu&u=paO8rbaEG9R-aftwTnaFsaiA4x2QxaPmSVw_SzeIZzw&cs=2560x1692
+2024-10-20T17:11:05.470+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Обрабатываем пост с ID: 6083
+2024-10-20T17:11:05.470+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-29.userapi.com/s/v1/ig2/zhYrd0pQCraJakvg3O8hJupZa2VgwLIwmd95d4_MXkbsZJXDPuwAj0TDuJwZkHnmEc-hyew9MXGkIPMo4s59NhcE.jpg?quality=95&as=32x25,48x37,72x56,108x83,160x123,240x185,360x278,480x370,540x417,640x494,720x556,1080x834,1280x988,1440x1111,2560x1976&from=bu&u=sWQ-q5GYLSw7s2ldTssJ5RtMsUy-k__3E_XXe9X6fLc&cs=2560x1976
+2024-10-20T17:11:05.470+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-14.userapi.com/s/v1/ig2/RE4QZ9LCqC1ml1m2vJoxHDkGalsFpIygUuXoelbLH6pKATu8Zkos1Xa8rilD-deJeihPvn0RD_BWNacrYkZj9vgY.jpg?quality=95&as=32x25,48x37,72x55,108x83,160x123,240x185,360x277,480x369,540x416,640x492,720x554,1080x831,1280x985,1440x1108,2560x1970&from=bu&u=z03icsY8PU-nswhHPaC-wtodSkqba1v4qQ5HxUX1k_Y&cs=2560x1970
+2024-10-20T17:11:05.470+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-4.userapi.com/s/v1/ig2/K8CUaOTY9v5BwnERx3hkMTstMxL-EE2aCDzTBhAUYUFdbvU9lLpeb2oereK1sSBV1y_HlbGl93_1Kx2IgtzAq6uG.jpg?quality=95&as=32x22,48x33,72x50,108x75,160x111,240x167,360x251,480x334,540x376,640x445,720x501,1080x752,1280x891,1440x1002,2560x1782&from=bu&u=oLBXQtk3DWd6Ui_w1R-x_C1-aVUMpywinXy7fs5IlyI&cs=2560x1782
+2024-10-20T17:11:05.470+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-76.userapi.com/s/v1/ig2/bPd-VCfex-vwHhnlTIKfgePFZZ9D688KwyDBWR3Xe_vodwM5Lov3h7ZsIdykh_HLXnM6eMO3REXfQmT8HBXGslNB.jpg?quality=95&as=32x27,48x41,72x62,108x92,160x137,240x205,360x308,480x410,540x462,640x547,720x615,943x806&from=bu&u=e4Otux95mf1mfNu_YWX5D65zy9yV_rmAUbEWfX7VtgI&cs=943x806
+2024-10-20T17:11:05.470+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-47.userapi.com/s/v1/ig2/czxwsBsNcq0SRzdU02JMBfg9LaGSwkb5THmQXiAWCTYEUxZaPox8gl3Aj4RmCGo5RfHa8WYpYgJptTgcjEpBIxRW.jpg?quality=95&as=32x33,48x49,72x74,108x111,160x164,240x246,360x370,480x493,540x554,640x657,674x692&from=bu&u=1-vVQGl2n94I_-gzBgntI4p3roAVPCotbdhg5e0Eqyk&cs=674x692
+2024-10-20T17:11:05.470+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-8.userapi.com/s/v1/ig2/LJsh77mUl18_Y6XVJr6SOnCGaard3Cebl-pVSFzLz1n9DPdPQZjaTC9UY_P9XBb9OToQjSGXvS6M8AprvlcimxGJ.jpg?quality=95&as=32x26,48x38,72x58,108x86,160x128,240x192,360x288,480x384,540x432,640x512,720x576,1080x864,1280x1024&from=bu&u=7n5FBMjsExw4bj9a1QXyvTeXTHUL4xta8QsIe1-_Hcc&cs=1280x1024
+2024-10-20T17:11:05.470+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Обрабатываем пост с ID: 6082
+2024-10-20T17:11:05.470+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-30.userapi.com/s/v1/ig2/lZDUhkB04FI1TstJ55Mj-hQedQSsWndvXvA4GC1g6TWQBc6CZOjKKDoRSw9-VqyI8Z9v99i8hlaQGnnu0S-mRW9K.jpg?quality=95&as=32x24,48x35,72x53,108x80,160x118,240x177,360x265,480x353,540x398,640x471,720x530,1080x795,1280x942,1440x1060,2560x1885&from=bu&u=cj0c2VmuHUe0JCZZ5V79AcFwKoM02GoJEsbSV68bnxU&cs=2560x1885
+2024-10-20T17:11:05.471+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-4.userapi.com/s/v1/ig2/K7egt3UZ2sUozsYKiz1ek6YaL3acLPy4qDIgzOLEPegbgXnOwCGYEuDbuyZqA09ploQ4xdwO96Vt77bNzKp-KIBq.jpg?quality=95&as=32x23,48x34,72x51,108x77,160x114,240x171,360x256,480x341,540x384,640x455,720x512,1080x767,1280x909,1440x1023,2560x1819&from=bu&u=TgOMoP9I9KpcFNqqu4pLLW4DKFVt6_F7Vm-S32koBgU&cs=2560x1819
+2024-10-20T17:11:05.471+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-68.userapi.com/s/v1/ig2/KY73bg_v7_bQJHfmiZUGgBKuRxHtwtyQPEacdVOAgxdjYjWSckwiRbLnkVyyS76m3HPgd6XMp2dwsppnCXgOHKq4.jpg?quality=95&as=32x22,48x32,72x48,108x73,160x108,240x161,360x242,480x323,540x363,640x430,720x484,1080x726,1280x860,1440x968,2560x1721&from=bu&u=BBRB0N7KJlV9A5uX04KfgpAhaTzkuxI99rMl8MGr_zM&cs=2560x1721
+2024-10-20T17:11:05.471+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-79.userapi.com/s/v1/ig2/atMX-S5sn9DtgnjJzDWEOIolg4qwb_4Xeipzdn34VR3hNlDikgv2_dGYAeiOVdoP0O-cpq22Fgwmp9-f_XiWBICB.jpg?quality=95&as=32x20,48x29,72x44,108x66,160x98,240x147,360x220,480x294,540x331,640x392,720x441,1080x661,1125x689&from=bu&u=9uOru5lIBHDZZ-iX1avDa0ZmJTSPuCoQyKsSTF9-W2g&cs=1125x689
+2024-10-20T17:11:05.471+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-35.userapi.com/s/v1/ig2/uy7_STq_9dm059hx5Vqr-_Le68gs77iNHUnenrrzY2Xr_71TuKdvDPLe0srvpOpWZaAHVwu0yXFmlN0BjS2Cgc_N.jpg?quality=95&as=32x18,48x27,72x41,108x61,160x90,240x135,360x203,480x270,540x304,640x360,720x405,1080x608,1280x721,1440x811,1906x1073&from=bu&u=rkGiwCkZ6A-ufWjP1VssxRuGPTJ9W2ws8hQb_IFK5WU&cs=1906x1073
+2024-10-20T17:11:05.471+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-59.userapi.com/s/v1/ig2/uJqdwHH4IApVMiOD4J5xkHPObtehIcLmLv_YvLzZ2Q2u9VQVPgbO3sAjYUjLihkZ16VbL2wHbU2y0iu0j4vRxH0E.jpg?quality=95&as=32x33,48x49,72x74,108x111,160x164,240x246,360x370,480x493,540x554,640x657,674x692&from=bu&u=aI_cMkUmIwwz7EfCXqDyituT1GAVH6SokyTBB8OB0KY&cs=674x692
+2024-10-20T17:11:05.471+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Обрабатываем пост с ID: 6081
+2024-10-20T17:11:05.471+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-24.userapi.com/s/v1/ig2/bAPRd2HpzTN0s95eINNDzB_ZHR6XEA0WpT8F3P0hjiBfyRsrQX4xPsoWdawk78tef_pItEkMyrsfyu0XZf_PLppI.jpg?quality=95&as=32x23,48x34,72x51,108x77,160x114,240x171,360x257,480x343,540x385,640x457,720x514,1080x771,1280x913,1440x1028,2560x1827&from=bu&u=47XMY9TxGhXEhIMWMiL01heQ_N-dj2zPdXuUoCG6E4s&cs=2560x1827
+2024-10-20T17:11:05.471+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-21.userapi.com/s/v1/ig2/ExOd0x_zg-Dlodm0GPq9lbuWokgoYJYGywG--ZDAVZioQObR3sGkzXzIx8RGz8K4bhytyqVzNWM0R0oOIGxuYAvh.jpg?quality=95&as=32x25,48x38,72x57,108x85,160x126,240x189,360x283,480x378,540x425,640x504,720x567,1080x850,1280x1007,1440x1133,2560x2015&from=bu&u=zBPDToSKnuTaDW2ypDPJdQxlVLQdayzNeDxpMsAL5ns&cs=2560x2015
+2024-10-20T17:11:05.472+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-66.userapi.com/s/v1/ig2/UrtwHcjSbp_5ihvaNqUU_BDN_5JvXlb-oHlM0k2o4DSYVEIKCBG9WIxqd6S1Fmdam4YezNuxKkUf0KHn5XQmcOWy.jpg?quality=95&as=32x22,48x33,72x50,108x74,160x110,240x165,360x248,480x330,540x372,640x440,720x496,1080x743,1280x881,1440x991,2560x1762&from=bu&u=10VjhiwZ9M19B0Tb-1dz7-CPQwo4p4bVu2-HBBlMzt0&cs=2560x1762
+2024-10-20T17:11:05.472+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-80.userapi.com/s/v1/ig2/eWq6dT28oil-P0JKHPEXWy4Fuv4G7jP3NdMgmsZV7pm9_Cweh9bo3igzibNp4R9O1SHClwwn-sydHEksdsQFl52R.jpg?quality=95&as=32x20,48x29,72x44,108x66,160x98,240x147,360x221,480x294,540x331,640x393,720x442,1080x662,1125x690&from=bu&u=3AluWBZrs4P4kX4JFsApduY7fiS01qWMYWYEJs7z5Yw&cs=1125x690
+2024-10-20T17:11:05.472+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-40.userapi.com/s/v1/ig2/N5aqDM-wMJPuZnBhE6T7gozXKie17ZsIUcZGLG8lL7htpPZnr-jMDLKNMVlOHZD58xxtQOsTkRBA_I4tZtF5fa5h.jpg?quality=95&as=32x33,48x49,72x74,108x111,160x164,240x246,360x370,480x493,540x554,640x657,674x692&from=bu&u=YX5q43cjVaD62Vz6l3lPEGjKRHqlMXwD0v7WD55ujqQ&cs=674x692
+2024-10-20T17:11:05.472+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-39.userapi.com/s/v1/ig2/3kothfxyhldu2e_kjbx7Em1QoTghKiwdxmhY4HWpr69Z2M-fwEN2A3GpLkSCRbzvepr21YI3pxhEXEOWOMOiYd9g.jpg?quality=95&as=32x18,48x27,72x41,108x61,160x90,240x135,360x203,480x270,540x304,640x360,720x405,1080x608,1280x721,1440x811,1906x1073&from=bu&u=zdk4lHqu_lfuAH0u-IUuMjQBRJtOiAWDfOkrOdTqYow&cs=1906x1073
+2024-10-20T17:11:05.472+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Обрабатываем пост с ID: 6080
+2024-10-20T17:11:05.472+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-18.userapi.com/s/v1/ig2/MpzmBtRr6oCSaOz5S1QaX-INzJkhGAzADZ9CVt_95ity3PTAOtVq0Kvg3xkdJ4XoI7VfBAT-OpG8MqSVIVAMQjf0.jpg?quality=95&as=32x23,48x35,72x53,108x79,160x117,240x176,360x263,480x351,540x395,640x468,720x527,1080x790,1280x936,1440x1054,2560x1873&from=bu&u=y3O8kSsXYaUmxc-E4-edIe53bDsU1rh_I2mIg1O4q2M&cs=2560x1873
+2024-10-20T17:11:05.472+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-13.userapi.com/s/v1/ig2/oGoYpA0KswrdyxmdPeY47Qe-oFdfxMQ2BKMJyIm2RpFrWyrOMaEUWSnfD2U_5Qw2OQ_nxKFbAIbuXltI6ozpOml0.jpg?quality=95&as=32x24,48x36,72x53,108x80,160x119,240x178,360x267,480x356,540x400,640x474,720x534,1080x800,1280x948,1440x1067,2560x1897&from=bu&u=vklsbDfUu670hMYnbc4-UIl1V1RAeU5C2AgOWefTJlM&cs=2560x1897
+2024-10-20T17:11:05.472+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-62.userapi.com/s/v1/ig2/ZcIUc6zAL9jV_74KpLJYxfPJmEnAdL-c5Gb_oO594FXjqQX3enD5w4Rna6aGMMq5X_DKifkxohmZ3LWNzFRxjLR1.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x721,1280x854,1440x961,2560x1708&from=bu&u=v5aAjfm8LnZfUwsZvItRW_4ohpgqocgUVyTbhWcnpao&cs=2560x1708
+2024-10-20T17:11:05.472+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-27.userapi.com/s/v1/ig2/f4sAxkL3acH_XXXdIKFR8mo26OMYNkiKMReDo0ZKx3kycV5PMVyC4zSqIysFkqNNugmsZJytdYL7RspwC3lL3Ezk.jpg?quality=95&as=32x27,48x41,72x62,108x93,160x137,240x206,360x309,480x412,540x463,640x549,720x618,1008x865&from=bu&u=-jeh9oO1Nw6o9RVjELVN0I3lt4hrhFsWgapGbvF3IIk&cs=1008x865
+2024-10-20T17:11:05.472+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-4.userapi.com/s/v1/ig2/mFg8D92LauF6us44unZfIyvdexcgyUYvihiQ5Zd66TgixarQso_nnJV65Yo01kDuTkXxfc1PSSZSNNq6j50WG18e.jpg?quality=95&as=32x33,48x49,72x74,108x111,160x164,240x246,360x370,480x493,540x554,640x657,674x692&from=bu&u=CXkWDUsMH6BcMusNYcG9R3RP4lJwILdaP-Rsz3wsPsU&cs=674x692
+2024-10-20T17:11:05.472+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-54.userapi.com/s/v1/ig2/G9fUGeAiUYArdw_fP3r1rTOP60P494TNoDk-OgPx4vKJbokJbuLYdxuhK8wxGZhSgeQOWWkS5pUiqQTyzhoaybOJ.jpg?quality=95&as=32x26,48x38,72x58,108x86,160x128,240x192,360x288,480x384,540x432,640x512,720x576,1080x864,1280x1024&from=bu&u=l8t9NlnjtdxTPaJl1HoYYKV2GTaMNzqmGS4ib3Wig68&cs=1280x1024
+2024-10-20T17:11:05.473+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Обрабатываем пост с ID: 6079
+2024-10-20T17:11:05.473+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-57.userapi.com/s/v1/ig2/IGZHoOqhk7Drg5L6DJDixbJiK_xd4iqtJu6ajyaZmqoe6m4r7eq7SW-HbUtaQQq8nOOa73WkKWKMWFfoqlxZ9XvQ.jpg?quality=95&as=32x26,48x39,72x59,108x88,160x131,240x196,360x294,480x393,540x442,640x523,720x589,856x700&from=bu&u=JMb253X1An3WJejdS7XZHVV9H8EYdC6nHa8jJZERH-s&cs=856x700
+2024-10-20T17:11:05.473+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Обрабатываем пост с ID: 6078
+2024-10-20T17:11:05.473+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-61.userapi.com/s/v1/ig2/7dNqXHGlrFuKgJasp_zQjCpMoHb68eNKgnQJjJtlO7S82xh1_OvgDxzE_R_Oied9pga31Dk-4c8d_YFOWiRHcHgf.jpg?quality=95&as=32x17,48x26,72x39,108x58,160x86,240x129,360x193,480x257,540x289,640x343,720x386,1080x578,1094x586&from=bu&u=RGon8drBmyDTm-SgAmuoBmtV0tzum_e2NGTZvq1bwRs&cs=1094x586
+2024-10-20T17:11:05.473+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Обрабатываем пост с ID: 6077
+2024-10-20T17:11:05.473+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-21.userapi.com/s/v1/ig2/7yex5kpypeeE6o1CFwgX9S9eoLanPHwd6BiNN-MTcdOQZnza9Og9eYU-5haLzYncp7CmOk3d42pGS6h9OmqO9XfW.jpg?quality=96&as=32x23,48x35,72x52,108x79,160x117,240x175,360x262,480x350,540x393,597x435&from=bu&u=XsO5sXqs4kjgPVkni10A3u-vwx60tUNUj3wRGwVFweA&cs=597x435
+2024-10-20T17:11:05.473+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Обрабатываем пост с ID: 6071
+2024-10-20T17:11:05.473+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-36.userapi.com/s/v1/ig2/oIFDjHibjisQMQclBO2IzZsfrf5rKJBkU1QQctbP5taixcIEqyVciFPLnakf2oYJ5wlaPOvs-f6x-i5OomZJz1XZ.jpg?quality=95&as=32x23,48x34,72x51,108x77,160x114,240x170,360x256,480x341,540x383,640x454,720x511,1080x767,1280x908,1440x1022,2560x1817&from=bu&u=-gzo5JWNM8PLRKOVsJMtrf_B4nCymkiFdQGKkU0_g7E&cs=2560x1817
+2024-10-20T17:11:05.473+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-37.userapi.com/s/v1/ig2/Pwc1TRYTkHcSDd2lMnUF5pp6Xs9auhH9tbdiIgVja_KnBKyu7KQs5wF-63dzHjXEoiCHqukIHyLB9PpNCCYo-i0P.jpg?quality=95&as=32x23,48x35,72x52,108x78,160x116,240x174,360x261,480x348,540x392,640x464,720x522,1080x783,1280x928,1440x1045,2560x1857&from=bu&u=LisQdE0WNmyYlqwHW71jtOS-zY8JEoP9A5upy5ZA_x0&cs=2560x1857
+2024-10-20T17:11:05.473+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-67.userapi.com/s/v1/ig2/1ZM50rw7Y4nHALdh14F9lvuGaMNUbAZyAThtgy_gRmMFQvMlwX94tO5U-iYCwSECxkYHMeXawRh2SazeqWbmhptP.jpg?quality=95&as=32x23,48x35,72x52,108x78,160x116,240x174,360x261,480x348,540x391,640x464,720x522,1080x783,1280x928,1440x1044,2560x1856&from=bu&u=zdl0JDGWbTnvgO0CTOKNro02fbstRztRs1KCP-YgtMk&cs=2560x1856
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-50.userapi.com/s/v1/ig2/LjlGPJpp7LsaFWoZlfHALuQnjicoGAPWWooQVuQpaiQhsKv_B0VxqwoPz6EC_XQfu2eXieAjnOYMQEI0Ggx5gzEt.jpg?quality=95&as=32x20,48x29,72x44,108x66,160x98,240x147,360x221,480x294,540x331,640x393,720x442,1080x662,1125x690&from=bu&u=g4KQvRUWYPm4P3jBmpzScwZndDyYZl7hskQH_pnadNs&cs=1125x690
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-29.userapi.com/s/v1/ig2/cGlg_OF6ESihOJM5coK8xqJRbAlmvtlHx-oFw7F3mJeknM67BvZmihYnU6_sIMb1v1zIBcIpV4RqLUm2vBtbGnJV.jpg?quality=95&as=32x33,48x49,72x74,108x111,160x164,240x246,360x370,480x493,540x554,640x657,674x692&from=bu&u=PkBUqhNXXxx2lQUEFNEu37U2i75Rruo52RGAe3H-KEM&cs=674x692
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-12.userapi.com/s/v1/ig2/SgwSt1__0qH9GoEggkdZ-zygFr1lZLeAUrC0crhMIQTAFMP1eOLMOfUlzBFkKxZod2b37h8wt2O8bE9d5K8B98SO.jpg?quality=95&as=32x18,48x27,72x41,108x61,160x90,240x135,360x203,480x270,540x304,640x360,720x405,1080x608,1280x721,1440x811,1906x1073&from=bu&u=r3f6VqYce37dKpUshSajFYGeg3s1pKP61xwwOVholhg&cs=1906x1073
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Обрабатываем пост с ID: 6066
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun6-20.userapi.com/s/v1/ig2/FiRXBPvmWKKuKpk23NA-JAanpm8olu-w3uHxpo5eZVPGNMBcNm0JoBhc_lJnd-cF_MsdtQAwahn1Oz1TyCo13oW9.jpg?quality=95&as=32x23,48x35,72x52,108x78,160x116,240x174,360x261,480x348,540x391,640x464,720x522,1080x783,1280x927,1440x1043,2560x1855&from=bu&u=TDzz3cHngE1jIIz4pRF9CdUydSjWg_toDslDNvMzkqU&cs=2560x1855
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-68.userapi.com/s/v1/ig2/xeB4tyv5jd4dz5X6_v1K2IayKrh5LrQ5v3vx-Z5CMXuq5X-xVhf54btvo-CrN-CPJQWrJCWsg8pKJihiAusKwmOO.jpg?quality=95&as=32x24,48x36,72x53,108x80,160x118,240x178,360x267,480x355,540x400,640x474,720x533,1080x800,1280x948,1440x1066,2560x1896&from=bu&u=VG7Ba4k3PazFa5f46l2vfi5wNH2QlbEzWwQK_tVKK3w&cs=2560x1896
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-46.userapi.com/s/v1/ig2/rvn3UJlB0CeFywi6FB1pWrrqZPxZJgB_5O9qyKo-_Km-gAf_MHo-v5V2koy9QuHLuSQSJPydsZbtg8dw4VIvyJcY.jpg?quality=95&as=32x23,48x34,72x51,108x77,160x114,240x170,360x256,480x341,540x383,640x454,720x511,1080x767,1280x909,1440x1023,2560x1818&from=bu&u=K9b0l-2Iqvm0eEn3QWDUSbBL8oE8oVFR-cesXHz-GPs&cs=2560x1818
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-21.userapi.com/s/v1/ig2/8bBL4p-mYuwxGIC1ePEzVTGvD_zyabMNBIHyN7GDqkuQiJE0Uq3ah__fs7K-xARaVstlD-tdf7C2nbCQHFS4ao0g.jpg?quality=95&as=32x26,48x39,72x59,108x88,160x130,240x195,360x293,480x390,540x439,640x520,720x585,1025x833&from=bu&u=M8JmpHnRnSEFwmj1qcj-ac-AQwo0itceJSnLWL5HWls&cs=1025x833
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-60.userapi.com/s/v1/ig2/ky49RpF1iapBMGzcBHqqE7VYHwtaJYjjDoH6R8pgIRuBpVKDy7qY3vkBq5zQOsyhfpJkdGQ0B1yGSDMPLBGpeaHG.jpg?quality=95&as=32x17,48x25,72x37,108x56,160x83,240x124,360x186,480x248,540x279,640x330,720x372,1080x558,1280x661,1340x692&from=bu&u=uSroiVxd7S_RgJrzvpQPDd7HNtAwcnQwF3zevReclPM&cs=1340x692
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.Configurations.PostData     : Ссылка на фото: https://sun9-22.userapi.com/s/v1/ig2/zv2EKbkVhbBFwjMn3E9kt3yHhPkC-3QEPZE6uL5QHddJDHiSBkx02TodHLrv6DRhVSe5ZuMm93dal4oOXaRea4MV.jpg?quality=95&as=32x26,48x38,72x58,108x86,160x128,240x192,360x288,480x384,540x432,640x512,720x576,1080x864,1280x1024&from=bu&u=yB1ohF89gYRsPmXZbgA9frRg_pL9KTZEojMGigd3Nh0&cs=1280x1024
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.VKWallPostParser   : Всего обработано 10 постов
+2024-10-20T17:11:05.474+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправляем текст с первым фото: Найти компьютерный центр "WALL-E" очень просто: 
+РФ, ДНР, г. Донецк, ул. Куйбышева 125-Б, здание, расположенное прямо напротив входа в бывший парк "Городок" (будущий парк "Патриот"). Также напротив нас расположен Донецкий колледж культуры и искусств 🎓 
+ 
+С м-на Широкого и с ЖД вокзала к нам можно добраться на маршрутке № 35-А 🚌 
+С Золотого кольца к нам можно доехать на маршрутке №10(не троллейбус). 🚐
+С Мотеля, через Крытый Рынок - маршрут №32, с АС Центр - маршрут №26, остановка просп.Александра Матросова и 600 м пешком до компьютерного центра в сторону парка Городок.🚶‍♂🚶‍♀
+ 
+💥Также есть платная курьерская доставка ДНР/ЛНР (забрать технику в ремонт/привезти заказ на адрес) 🚘
+
+График работы ⏲
+Пн-Пт: 09:30 - 17:30
+ Сб: 10:00 - 15:00
+Вс: выходной
+
+По вопросам продажи, сборки, модернизации, ремонта и доставки обращайтесь
+vk.me/donetsk_walle
+
++79493408330 +79493552371
+
+📌 Отзывы - vk.com/topic-161071862_37211973
+
+ИП Чернышов А.С. ОКПО 0172674751
+2024-10-20T17:11:07.062+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправлено фото: https://sun9-67.userapi.com/s/v1/ig2/fKF9oQhv0n9N26cfHHlGbicHMpJVw_UBAlxjg--BXX2U_ozZ9YRoVLkqaF-p8CoeNOEPmp-dMtFU9Er945_sVHD7.jpg?quality=96&as=32x21,48x32,72x48,108x71,160x106,240x159,360x238,480x317,540x357,640x423,720x476,1080x714,1280x846,1440x952,2560x1692&from=bu&u=paO8rbaEG9R-aftwTnaFsaiA4x2QxaPmSVw_SzeIZzw&cs=2560x1692
+2024-10-20T17:11:07.062+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправляем текст с первым фото: Ryzen 5 3600/DDR4 16 Gb/NVME 1000GB/RTX 3060 ti 
+Современный игровой ПК на базе 12ти-поточного процессора от #AMD и GeForce 3060 ti 8G трассировка лучей и DLSS, 
+Системный блок 65000 ₽ 
+Любые проверки у нас, доставка по ДНР и ЛНР 
+Гарантия 
+Собран полностью из новых комплектующих, видеокарта б/у. 
+Современная платформа имеет все необходимые разъёмы и потенциал под дальнейшую модернизацию, собран в просторном корпусе с отличной продуваемостью, боковое окно из коленного стекла. Операционная система установлена на новый NVME накопитель, благодаря чему система имеет молниеносный отклик. 
+Тянет много современных игр на ультра высоких настройках .Видео с тестами игр прикрепляю 
+
+Процессор AMD Ryzen 5 3600 с башней на 4 теплотрубки 
+(6ядер/12 потоков до 4.2ГГц) 
+Оперативная память 16 гб DDR4 
+Видеокарта Asus 3060 ti 8GB(стресс тест на фото) 
+Материнская плата MSI A520M-A Pro
+NVME 1000Gb 
+Блок питания 1stPlayer BlackSir 600W 80+ 
++7949 340 83 30 
++7949 355 23 71 
+По вопросам продажи, сборки, модернизации и ремонта обращайтесь 
+ 
+vk.me/donetsk_walle
+2024-10-20T17:11:07.094+02:00 ERROR 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Ошибка при отправке поста в Telegram
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.send.SendPhoto query: [400] Bad Request: message caption is too long
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponse(PartialBotApiMethod.java:34) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.send.SendPhoto.deserializeResponse(SendPhoto.java:105) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.bots.DefaultAbsSender.execute(DefaultAbsSender.java:277) ~[telegrambots-6.9.7.1.jar:na]
+	at services.com.Vk2TgParser.walleBot.TelegramPostPublisher.sendPostsToTelegram(TelegramPostPublisher.java:41) ~[main/:na]
+	at services.com.Vk2TgParser.walleBot.PostSchedulerService.processOldPostsRecursively(PostSchedulerService.java:83) ~[main/:na]
+	at services.com.Vk2TgParser.walleBot.PostSchedulerService.checkForNewVKPosts(PostSchedulerService.java:62) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.1.jar:6.1.1]
+	at io.micrometer.observation.Observation.observe(Observation.java:499) ~[micrometer-observation-1.12.0.jar:1.12.0]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.1.1.jar:6.1.1]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2024-10-20T17:11:07.102+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправляем текст с первым фото: Intel i5-12400f/DDR5 32 Gb/NVME 1000GB/RTX 4060TI 
+ 
+Современный игровой ПК на базе 12ти-поточного процессора от intel и GeForce RTX 4060TI 8G трассировка лучей и DLSS 3.0 
+Системный блок 103000 ₽ 
+Собран полностью из новых комплектующих 
+Любые проверки у нас, доставка по ДНР и ЛНР 
+Гарантия 
+Современная платформа имеет все необходимые разъёмы и потенциал под дальнейшую модернизацию, собран в просторном кубическом корпусе с управляемой подсветкой, боковое окно и фронтальное из каленого стекла. Управляемая подсветка кулеров. Операционная система установлена на скоростной NVME накопитель, благодаря чему система имеет молниеносный отклик. 
+Тянет много современных игр на ультра высоких настройках .Видео с тестами игр прикрепляю 
+https://vk.com/video-161071862_456239402 
+Процессор Intel Core i5-12400f 
+18 МБ кэш-памяти, до 4,40 ГГц 
+Оперативная память 32 гб DDR5 
+Видеокарта Gigabyte Windforce OC RTX 4060TI 8G(стресс тест на фото) 
+Материнская плата Maxsun Challenger B760M D5 
+NVME 1000GB Kingston 
+Блок питания 1stPlayer BS 600W 80+ 
+По вопросам продажи, сборки ПК, модернизации и ремонта обращайтесь 
+vk.me/donetsk_walle 
++7949 340 83 30 
++7949 355 23 71
+2024-10-20T17:11:07.131+02:00 ERROR 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Ошибка при отправке поста в Telegram
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.send.SendPhoto query: [400] Bad Request: message caption is too long
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponse(PartialBotApiMethod.java:34) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.send.SendPhoto.deserializeResponse(SendPhoto.java:105) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.bots.DefaultAbsSender.execute(DefaultAbsSender.java:277) ~[telegrambots-6.9.7.1.jar:na]
+	at services.com.Vk2TgParser.walleBot.TelegramPostPublisher.sendPostsToTelegram(TelegramPostPublisher.java:41) ~[main/:na]
+	at services.com.Vk2TgParser.walleBot.PostSchedulerService.processOldPostsRecursively(PostSchedulerService.java:83) ~[main/:na]
+	at services.com.Vk2TgParser.walleBot.PostSchedulerService.checkForNewVKPosts(PostSchedulerService.java:62) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.1.jar:6.1.1]
+	at io.micrometer.observation.Observation.observe(Observation.java:499) ~[micrometer-observation-1.12.0.jar:1.12.0]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.1.1.jar:6.1.1]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2024-10-20T17:11:07.132+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправляем текст с первым фото: Intel i3-12100f/DDR4 16 Gb/NVME 1000GB/RTX 3060 12GB 
+Современный игровой ПК на базе 8и-поточного процессора от #intel и GeForce RTX 3060 12GB трассировка лучей и DLSS 
+Все комплектующие новые 
+Системный блок 70000 ₽ 
+Любые проверки у нас, доставка по ДНР и ЛНР 
+Гарантия 
+Современная платформа имеет все необходимые разъёмы и потенциал под дальнейшую модернизацию, боковое и фронтальное окно из каленого стекла. Операционная система установлена на NVME накопитель, благодаря чему система имеет молниеносный отклик. 
+Тянет много современных игр на ультра настройках .Видео с тестами игр прикрепляю 
+https://vk.com/video-161071862_456239383 
+Процессор Intel Core i3-12100F 
+12 МБ кэш-памяти, до 4,30 ГГц 
+Оперативная память 16 гб DDR4 3200МГц 
+Видеокарта Palit RTX 3060 12GB(стресс тест на фото) 
+Материнская плата Maxsun H610M V2 DDR4 
+SSD NVME 1000GB 
+Блок питания 1ST Player 500W 80+ 
++7949 340 83 30 
++7949 355 23 71 
+По вопросам продажи, сборки, модернизации и ремонта обращайтесь 
+ 
+vk.me/donetsk_walle
+2024-10-20T17:11:08.263+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправлено фото: https://sun9-24.userapi.com/s/v1/ig2/bAPRd2HpzTN0s95eINNDzB_ZHR6XEA0WpT8F3P0hjiBfyRsrQX4xPsoWdawk78tef_pItEkMyrsfyu0XZf_PLppI.jpg?quality=95&as=32x23,48x34,72x51,108x77,160x114,240x171,360x257,480x343,540x385,640x457,720x514,1080x771,1280x913,1440x1028,2560x1827&from=bu&u=47XMY9TxGhXEhIMWMiL01heQ_N-dj2zPdXuUoCG6E4s&cs=2560x1827
+2024-10-20T17:11:12.594+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправлена медиа-группа с 5 фото
+2024-10-20T17:11:12.595+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправляем текст с первым фото: Intel i3-12100f/DDR4 16 Gb/NVME 1000Gb/RTX 3050 8гб 
+Современный игровой ПК на базе 8ми-поточного процессора 12го поколения от #intel и GeForce RTX 3050 8GB 💪🏻 трассировка лучей и DLSS 
+Все комплектующие новые. 
+Системный блок 62000 ₽ 
+Любые проверки у нас, доставка по ДНР 
+Гарантия 
+Собран в просторном корпусе с управляемыми RGB кулерами! 
+Современная платформа имеет все необходимые разъёмы и потенциал под дальнейшую модернизацию, боковое окно из коленного стекла. Операционная система установлена на новый NVME накопитель, благодаря чему система имеет молниеносный отклик. 
+🕶Тянет много современных игр на ультра настройках .Видео с тестами игр прикрепляю🕶 
+https://vk.com/video-161071862_456239464 
+Процессор Intel Core i3-12100F 
+12 МБ кэш-памяти, до 4,30 ГГц 
+Оперативная память 16 гб DDR4 3200МГц 
+Видеокарта Zotac RTX 3050 8GB(стресс тест на фото) 
+Материнская плата ASRock H610M-HVS
+SSD NVME 1000Gb 
+Блок питания 1stPlayer 500w 80+ 
++7 949 340 83 30 
++7 949 355 23 71 
+ 
+По вопросам продажи, сборки, модернизации и ремонта обращайтесь 
+ 
+vk.me/donetsk_walle
+2024-10-20T17:11:12.624+02:00 ERROR 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Ошибка при отправке поста в Telegram
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.send.SendPhoto query: [400] Bad Request: message caption is too long
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponse(PartialBotApiMethod.java:34) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.send.SendPhoto.deserializeResponse(SendPhoto.java:105) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.bots.DefaultAbsSender.execute(DefaultAbsSender.java:277) ~[telegrambots-6.9.7.1.jar:na]
+	at services.com.Vk2TgParser.walleBot.TelegramPostPublisher.sendPostsToTelegram(TelegramPostPublisher.java:41) ~[main/:na]
+	at services.com.Vk2TgParser.walleBot.PostSchedulerService.processOldPostsRecursively(PostSchedulerService.java:83) ~[main/:na]
+	at services.com.Vk2TgParser.walleBot.PostSchedulerService.checkForNewVKPosts(PostSchedulerService.java:62) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.1.jar:6.1.1]
+	at io.micrometer.observation.Observation.observe(Observation.java:499) ~[micrometer-observation-1.12.0.jar:1.12.0]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.1.1.jar:6.1.1]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2024-10-20T17:11:12.626+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправляем текст с первым фото: В наличии! 
+Кресло компьютерное игровое 
+6500 ₽ 
+Доставка по ДНР. 
+По вопросам продажи, сборки, модернизации и ремонта обращайтесь 
+ 
+vk.me/donetsk_walle 
++7949 340 83 30 
++7949 355 23 71
+2024-10-20T17:11:19.271+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправлено фото: https://sun9-57.userapi.com/s/v1/ig2/IGZHoOqhk7Drg5L6DJDixbJiK_xd4iqtJu6ajyaZmqoe6m4r7eq7SW-HbUtaQQq8nOOa73WkKWKMWFfoqlxZ9XvQ.jpg?quality=95&as=32x26,48x39,72x59,108x88,160x131,240x196,360x294,480x393,540x442,640x523,720x589,856x700&from=bu&u=JMb253X1An3WJejdS7XZHVV9H8EYdC6nHa8jJZERH-s&cs=856x700
+2024-10-20T17:11:19.272+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправляем текст с первым фото: Учитывая обстановку с электроснабжением в нашем регионе ИБП просто необходим вашему компьютеру. 
+ИБП имеют в своём составе входной сетевой фильтр и стабилизатор напряжения, также защищая нагрузку от высокочастотных помех и отклонений напряжения в сети в определённых пределах. В случае отклонения параметров напряжения на большей величины ИБП переходит на питание от батарей. 
+Источник бесперебойного питания ExeGate (EX292764RUS)
+5000₽
++7949 340 83 30 
++7949 355 23 71 
+По вопросам продажи, сборки, модернизации и ремонта обращайтесь 
+vk.me/donetsk_walle
+2024-10-20T17:11:19.926+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправлено фото: https://sun9-61.userapi.com/s/v1/ig2/7dNqXHGlrFuKgJasp_zQjCpMoHb68eNKgnQJjJtlO7S82xh1_OvgDxzE_R_Oied9pga31Dk-4c8d_YFOWiRHcHgf.jpg?quality=95&as=32x17,48x26,72x39,108x58,160x86,240x129,360x193,480x257,540x289,640x343,720x386,1080x578,1094x586&from=bu&u=RGon8drBmyDTm-SgAmuoBmtV0tzum_e2NGTZvq1bwRs&cs=1094x586
+2024-10-20T17:11:19.926+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправляем текст с первым фото: 
+2024-10-20T17:11:20.533+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправлено фото: https://sun9-21.userapi.com/s/v1/ig2/7yex5kpypeeE6o1CFwgX9S9eoLanPHwd6BiNN-MTcdOQZnza9Og9eYU-5haLzYncp7CmOk3d42pGS6h9OmqO9XfW.jpg?quality=96&as=32x23,48x35,72x52,108x79,160x117,240x175,360x262,480x350,540x393,597x435&from=bu&u=XsO5sXqs4kjgPVkni10A3u-vwx60tUNUj3wRGwVFweA&cs=597x435
+2024-10-20T17:11:20.533+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправляем текст с первым фото: Intel i5-12400f/DDR4 16 Gb/NVME 1000GB/RTX 4060 
+Современный игровой ПК на базе 12ти-поточного процессора от intel и GeForce RTX 4060 8GB трассировка лучей и DLSS 
+Все комплектующие новые. 
+Системный блок 80000 ₽ 
+Любые проверки у нас, доставка по ДНР и ЛНР 
+Гарантия 
+Современная платформа имеет все необходимые разъёмы и потенциал под дальнейшую модернизацию, собран в в просторном корпусе с управляемыми RGB кулерами, боковое окно - из каленого стекла. Операционная система установлена на скоростной накопитель, благодаря чему система имеет молниеносный отклик. 
+Тянет много современных игр на ультра настройках. Видео с тестами игр прикрепляю 
+https://vk.com/video-161071862_456239554 
+Процессор Intel Core i5-12400f 
+18 МБ кэш-памяти, до 4,40 ГГц 
+Оперативная память 16 гб DDR4 3200МГц 
+Видеокарта GeForce RTX 4060 8GB (стресс тест на фото) 
+Материнская плата MSI Pro B760M-P
+SSD NVME 1000GB 
+Блок питания 1stPlayer BlackSir 500W 80+ 
++7949 340 83 30 
++7949 355 23 71 
+По вопросам продажи, сборки, модернизации и ремонта обращайтесь 
+ 
+vk.me/donetsk_walle
+2024-10-20T17:11:20.561+02:00 ERROR 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Ошибка при отправке поста в Telegram
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.send.SendPhoto query: [400] Bad Request: message caption is too long
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponse(PartialBotApiMethod.java:34) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.send.SendPhoto.deserializeResponse(SendPhoto.java:105) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.bots.DefaultAbsSender.execute(DefaultAbsSender.java:277) ~[telegrambots-6.9.7.1.jar:na]
+	at services.com.Vk2TgParser.walleBot.TelegramPostPublisher.sendPostsToTelegram(TelegramPostPublisher.java:41) ~[main/:na]
+	at services.com.Vk2TgParser.walleBot.PostSchedulerService.processOldPostsRecursively(PostSchedulerService.java:83) ~[main/:na]
+	at services.com.Vk2TgParser.walleBot.PostSchedulerService.checkForNewVKPosts(PostSchedulerService.java:62) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.1.jar:6.1.1]
+	at io.micrometer.observation.Observation.observe(Observation.java:499) ~[micrometer-observation-1.12.0.jar:1.12.0]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.1.1.jar:6.1.1]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2024-10-20T17:11:20.562+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправляем текст с первым фото: Intel Xeon E5-2666v3/DDR4 16GB/SSD 120/HDD 500/GTX 1050 ti 
+Игровой ПК на базе 10-ти ядерного 20-ти поточного процессора от intel 
+Системный блок 30000 ₽ 
+Любые проверки у нас, доставка по ДНР и ЛНР 
+Гарантия 
+Платформа ТОП конца 2022 года имеет все необходимые разъёмы (NVME, USB 3.0) . Операционная система установлена на новый скоростной SSD накопитель, благодаря чему система имеет молниеносный отклик. 
+Тянет много современных игр на ультра высоких настройках .Видео с тестами игр прикрепляю 
+https://vk.com/video-216947339_456239067 
+Процессор Intel Xeon E5-2666v3 
+30 МБ кэш-памяти, тактовая частота до 3,5 ГГц с башней на 4 теплотрубоки 
+Оперативная память DDR4 16 гб 
+Видеокарта MSI GTX 1050ti 4Gb (стресс тест на фото) 
+Материнская плата X99 
+SDD 120gb 
+HDD 500gb 
+Блок питания 1stPlayer 500W 80+ 
+ 
++7 949 340 83 30 
++7 949 355 23 71 
+По вопросам продажи, сборки, модернизации и ремонта обращайтесь 
+ 
+vk.me/donetsk_walle
+2024-10-20T17:11:21.943+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправлено фото: https://sun6-20.userapi.com/s/v1/ig2/FiRXBPvmWKKuKpk23NA-JAanpm8olu-w3uHxpo5eZVPGNMBcNm0JoBhc_lJnd-cF_MsdtQAwahn1Oz1TyCo13oW9.jpg?quality=95&as=32x23,48x35,72x52,108x78,160x116,240x174,360x261,480x348,540x391,640x464,720x522,1080x783,1280x927,1440x1043,2560x1855&from=bu&u=TDzz3cHngE1jIIz4pRF9CdUydSjWg_toDslDNvMzkqU&cs=2560x1855
+2024-10-20T17:11:26.727+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.TelegramPostPublisher     : Отправлена медиа-группа с 5 фото
+2024-10-20T17:11:26.727+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.PostSchedulerService      : Обновляем lastPostID до: 6066
+2024-10-20T17:11:26.728+02:00  INFO 4780 --- [scheduling-1] c.K.walleBot.services.LastPostIdService  : Файл .\src\data\lastPostID.txt обновлен. Новый ID: 6066
+2024-10-20T17:11:26.728+02:00  INFO 4780 --- [scheduling-1] c.K.w.services.PostSchedulerService      : Задержка перед следующим запросом...
