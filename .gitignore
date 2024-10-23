@@ -46,5 +46,9 @@ env/
 venv/
 ENV/
 
-### Configuration file ###
-resources/application.yml
+### resources folder ###
+/src/main/resources/
+
+### logs folder ###
+logs
+

@@ -20,23 +20,16 @@ vk:
   domain: donetsk_walle
   # ID администратора
   adminID: 30294673
-  # Токен приложения VK
-  # clientSecret: K4EfUlnEty2vjTx1mq19
-  # serviceToken: 173a6e10173a6e10173a6e10c0142540b21173a173a6e1071cfcb3a0261186f167264c2
-  # ID приложения
-  # appID: 52375202
-
 
 filepath:
   lastPostID: "./src/data/lastPostID.txt"
 
 request:
-  firstCount: 10 # Ограничение постов в минуту при первом запуске
   count: 5  # Количество постов (min = 2, max = 100)
   filter: OWNER  # Фильтр постов: "owner", "others", "all", "postponed", "suggests"
 
 settings:
-  timeToSleep: 600000  # Время ожидания между циклами (в миллисекундах) (10 минут)
+  timeToSleep: 30000  # Время ожидания между циклами (в миллисекундах) (10 минут)
 
   # для последующей доработки проекта
 

@@ -18,9 +18,6 @@ public class PostSchedulerService {
     private final TelegramPostPublisher telegramPostPublisher;
     private final LastPostIdService lastPostIdService;
 
-    @Value("${request.firstCount}")
-    private int firstPostCount;  // Количество постов на первый запуск
-
     @Value("${request.count}")
     private int postCount;
 
@@ -59,7 +56,7 @@ public class PostSchedulerService {
 
         if (difference >= 5) {
             log.info("Обрабатываем старые посты, начиная с ID: {}", lastPostID);
-            processOldPostsRecursively(lastPostID, difference-firstPostCount);  // Запуск рекурсивного метода для старых постов
+            processOldPostsRecursively(lastPostID, difference-postCount);  // Запуск рекурсивного метода для старых постов
         } else {
             // Обычная проверка новых постов
             List<PostData> newPosts = vkWallPostParser.parsePostsSince(lastPostID, postCount, 0);
@@ -77,29 +74,41 @@ public class PostSchedulerService {
     // Рекурсивный метод для обработки старых постов
     private void processOldPostsRecursively(long lastPostID, int offset) {
         log.info("Обрабатываем старые посты с ID: {} и offset: {}", lastPostID, offset);
-        List<PostData> posts = vkWallPostParser.parsePostsSince(lastPostID, firstPostCount, offset);
 
-        if (!posts.isEmpty()) {
-            telegramPostPublisher.sendPostsToTelegram(posts);
+        // Проверяем, есть ли ещё посты для обработки
+        if (offset >= 0) {
+            List<PostData> posts = vkWallPostParser.parsePostsSince(lastPostID, postCount, offset);
 
-            // Обновляем lastPostID до ID последнего поста в текущей выборке
-            long latestPostId = posts.get(posts.size() - 1).getPostID();
-            log.info("Обновляем lastPostID до: {}", latestPostId);
-            lastPostIdService.updateLastPostId(latestPostId);  // Записываем новый ID в файл
+            if (!posts.isEmpty()) {
+                telegramPostPublisher.sendPostsToTelegram(posts);
 
-            // Задержка между запросами для соблюдения ограничения
-            try {
-                log.info("Задержка перед следующим запросом...");
-                Thread.sleep(60000);  // 1 минута
-            } catch (InterruptedException e) {
-                log.error("Ошибка во время ожидания между отправками постов", e);
-                Thread.currentThread().interrupt();
+                // Обновляем lastPostID до ID последнего поста в текущей выборке (первый в оригинальном списке)
+                long newLastPostID = posts.get(posts.size()-1).getPostID();
+                log.info("Обновляем lastPostID до: {}", newLastPostID);
+                lastPostIdService.updateLastPostId(newLastPostID);  // Записываем новый ID в файл
+
+                delayBetweenPosts(20000);
+
+                // Уменьшаем offset и продолжаем рекурсивный вызов
+                processOldPostsRecursively(newLastPostID, offset - postCount);
+            } else {
+                log.info("Посты при проходе цикла не найдены");
+                delayBetweenPosts(20000);
+                // Уменьшаем offset и продолжаем рекурсивный вызов
+                processOldPostsRecursively(lastPostID, offset - postCount);
             }
-
-            // Рекурсивный вызов с обновлённым offset
-            processOldPostsRecursively(lastPostID, offset + firstPostCount);
         } else {
-            log.info("Все старые посты обработаны.");
+            log.info("Обработка завершена. Offset достиг нуля или меньше.");
+
+        }
+    }
+
+    private static void delayBetweenPosts(int delay) { // время задержки между запросами для соблюдения ограничений
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+            log.error("Ошибка во время ожидания между отправками постов", e);
+            Thread.currentThread().interrupt();
         }
     }
 }

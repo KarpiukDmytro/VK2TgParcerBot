@@ -4,6 +4,7 @@ import com.vk.api.sdk.objects.photos.PhotoSizes;
 import com.vk.api.sdk.objects.wall.WallpostAttachment;
 import com.vk.api.sdk.objects.wall.WallpostFull;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.URI;
@@ -16,6 +17,9 @@ import java.util.List;
 public class PostData {
     private final String text;
     private final List<String> photoUrls;
+    @Getter
+    @Setter
+    private String firstPhotoFileId;
     @Getter
     private final Integer postID;
 
@@ -67,5 +71,25 @@ public class PostData {
         }
         return photoUrls;
     }
+
+    // Метод для извлечения ссылок на видео
+    public static List<String> extractVideoUrls(WallpostFull post) {
+        List<String> videoUrls = new ArrayList<>();
+
+        for (WallpostAttachment attachment : post.getAttachments()) {
+            if ("video".equals(attachment.getType().getValue())) {
+                // Получаем информацию о видео
+                String videoUrl = String.valueOf(attachment.getVideo().getPlayer()); // Получаем ссылку на проигрыватель видео
+                // Записываем в логи ссылку на видео
+                log.info("Ссылка на видео: {}", videoUrl);
+                // Если ссылка на видео присутствует, добавляем её в список
+                if (videoUrl != null && !videoUrl.isEmpty()) {
+                    videoUrls.add(videoUrl);
+                }
+            }
+        }
+        return videoUrls;
+    }
+
 
 }

@@ -62,7 +62,7 @@ public class VKWallPostParser {
                     .getItems();
 
             if (!posts.isEmpty() && posts.size() > 1) {
-                log.info("Получен последний пост с ID: {}", posts.get(0).getId());
+                log.info("Получен последний пост с ID: {}", (posts.get(0).isPinned()) ? (long) posts.get(1).getId() : (long) posts.get(0).getId());
                 return (posts.get(0).isPinned()) ? (long) posts.get(1).getId() : (long) posts.get(0).getId();
             }
             log.warn("Не найдено ни одного поста.");
