@@ -1,6 +1,7 @@
 package com.Vk2TgParser.walleBot.services;
 
 import com.Vk2TgParser.walleBot.Configurations.PostData;
+import com.Vk2TgParser.walleBot.Configurations.VideoObject;
 import com.vk.api.sdk.client.VkApiClient;
 import com.vk.api.sdk.client.actors.UserActor;
 import com.vk.api.sdk.exceptions.ApiException;
@@ -21,7 +22,6 @@ import java.util.List;
 public class VKWallPostParser {
 
     private final String accessToken;
-    //private String groupToken;
     private final Long adminID;
     private final VkApiClient vk;
     private final UserActor actor;
@@ -33,9 +33,7 @@ public class VKWallPostParser {
     private String filter;
 
     @Value("${request.count}")
-    private int postCount; // Количество постов на обычный запрос
-
-
+    private int postCount;
 
     public VKWallPostParser(@Value("${vk.adminID}") Long adminID,
                             @Value("${vk.accessToken}") String accessToken) {
@@ -44,7 +42,6 @@ public class VKWallPostParser {
         this.accessToken = accessToken;
 
         this.vk = new VkApiClient(HttpTransportClient.getInstance());
-        // Инициализация UserActor в конструкторе
         this.actor = new UserActor(adminID, accessToken);
         log.info("Инициализация VKWallPostParser с adminID: {} и accessToken: {}", adminID, accessToken);
     }
@@ -83,7 +80,6 @@ public class VKWallPostParser {
         log.info("Запрашиваем посты начиная с ID: {} с количеством: {} и смещением: {}", lastPostID, count, offset);
         try {
             List<PostData> parsedPosts = new ArrayList<>();
-
             WallGetQuery query = vk.wall()
                     .get(actor)
                     .domain(domain)
@@ -92,7 +88,7 @@ public class VKWallPostParser {
                     .filter(GetFilter.valueOf(filter));
             List<WallItem> posts = query.execute().getItems();
 
-            for (WallItem post : posts) {  // Используем правильный тип WallItem
+            for (WallItem post : posts) {
                 if (post.getId() > lastPostID) {
                     parsedPosts.add(processPost(post));
                 }
@@ -111,13 +107,15 @@ public class VKWallPostParser {
         return new ArrayList<>();
     }
 
+    // Метод для обработки поста и извлечения данных
     private PostData processPost(WallItem post) {
         log.info("Обрабатываем пост с ID: {}", post.getId());
 
         String postText = post.getText();
-        List<String> postPhotoUrls = PostData.extractPhotoUrls(post); // Предполагаем, что метод корректно обрабатывает WallItem
+        List<String> postPhotoUrls = PostData.extractPhotoUrls(post); // Извлечение ссылок на фото
+        List<VideoObject> postVideoObjects = PostData.extractVideoObjects(post, vk, actor); // Извлечение ссылок на видео
         Integer postID = post.getId();
 
-        return new PostData(postText, postPhotoUrls, postID);
+        return new PostData(postText, postPhotoUrls, postVideoObjects, postID);
     }
 }

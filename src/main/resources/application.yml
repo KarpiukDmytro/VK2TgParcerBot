@@ -12,8 +12,6 @@ telegram:
 vk:
   # Персональный токен доступа, генерируется на сайте https://vkhost.github.io/
   accessToken: vk1.a.nBKdz-AP6FF0RhoEWIfZEG9T2LpfL2NFKjQJZLGH5Zh8XYv7mPBcSYw-sXwpsjhuU2xlLs39Z4RVTzf4MlzkZWEyIoOQk6dxJrTo79Ue1rfBqNOwnQjjQGZfpZtudqcj-4QHKP8Z40f2mneXMohj-g9sgky10g9mqSgMvRDwcX1OYOmTEgWRdigAS_Ga2izPiDQGEr664r57NofivN9l2A
-  # Токен группы VK для использования LongPoll API
-  groupToken: vk1.a.sTGwU_FyaL-DxZdr0lRLo1ExC-E0wcM1QuX4tKQ40mf9N-Bv-jxATlL8zkF-CPY7senEHksyqFgLl5OJtvhyGnornltrZ5YkdzVSzKWsNQ0FgIrkwxvfJNrLKVoWLvp8RJKi9SLzFQ7dfY6_GLDr1aF0eprZD1dg6Mh4kkAykEp1JDQNtcpl7GxVTIJDADlUkTcvwowNxxrBC2uJmo3gTg
   # ID группы
   groupID: 161071862
   # Частичное название ссылки на VK канал (например, vk.com/example)
@@ -25,17 +23,18 @@ filepath:
   lastPostID: "./src/data/lastPostID.txt"
 
 request:
-  count: 5  # Количество постов (min = 2, max = 100)
+  count: 3  # Количество постов (min = 2, max = 100)
   filter: OWNER  # Фильтр постов: "owner", "others", "all", "postponed", "suggests"
 
 settings:
-  timeToSleep: 30000  # Время ожидания между циклами (в миллисекундах) (10 минут)
+  timeToSleep: 60000  # Время ожидания между циклами (в миллисекундах) (1 минута)
 
   # для последующей доработки проекта
 
   # skipReposts: true  # Не парсить репосты
-  # skipAudio # Не парсить аудио
-  # skipVideo: true  # Не парсить видео
+  skipAudio: true # Don't parse audio
+  skipPhoto: false # Parse photos
+  skipVideo: false  # Parse videos
   # skipDocument: true # Не парсить документы
 
   # filtering:

@@ -1,6 +1,7 @@
 package com.Vk2TgParser.walleBot.services;
 
 import com.Vk2TgParser.walleBot.Configurations.PostData;
+import com.Vk2TgParser.walleBot.Configurations.VideoObject;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Value;
@@ -38,6 +39,7 @@ public class TelegramPostPublisher {
                 // Проверяем наличие текста
                 boolean hasText = postData.getText() != null && !postData.getText().isEmpty();
                 List<String> photoUrls = postData.getPhotoUrls();
+                List<VideoObject> videoObjects = postData.getVideoObjects();
 
                 // Если текста нет
                 if (!hasText) {
@@ -68,9 +70,11 @@ public class TelegramPostPublisher {
                     // Если есть дополнительные фото
                     if (photoUrls.size() == 2) {
                         // Отправляем одно оставшееся фото
+                        delayBetweenMessages(3000);
                         sendSinglePhoto(photoUrls.get(1));
                     } else if (photoUrls.size() > 2) {
                         // Отправляем оставшиеся фотографии как медиа-группу
+                        delayBetweenMessages(3000);
                         List<InputMedia> media = sendMediaGroup(postData, 1);
                         if (!media.isEmpty()) {
                             SendMediaGroup sendMediaGroup = new SendMediaGroup();
@@ -81,6 +85,11 @@ public class TelegramPostPublisher {
                         } else {
                             log.warn("Ни одной валидной ссылки на изображения для отправки.");
                         }
+                    }
+
+                    if (!videoObjects.isEmpty()) {
+                        delayBetweenMessages(3000);
+                        sendVideoObjectsAsMessages(videoObjects);
                     }
                 }
             } catch (TelegramApiException e) {
@@ -144,5 +153,36 @@ public class TelegramPostPublisher {
             }
         }
         return media;
+    }
+
+    // Отправляем ссылки на видео отдельными сообщениями
+    public void sendVideoObjectsAsMessages(List<VideoObject> videoObjects) throws TelegramApiException {
+        for (VideoObject videoObject : videoObjects) {
+            String videoLink = videoObject.getLink();
+            if (URLValidator.isVideoURLValid(videoLink)){
+                videoLink = (videoObject.getLink().contains("?"))
+                        ? videoObject.getLink().substring(0, videoObject.getLink().indexOf("?"))
+                        : videoObject.getLink();
+                String invisibleSnippet = "<a href='" + videoLink + "'>\u200B</a>";
+                SendMessage message = new SendMessage();
+                message.setChatId(channelId);
+                message.setText(invisibleSnippet +"\n"+ "<b>" + videoObject.getTitle() + "</b>");
+                message.enableHtml(true);
+
+                telegramBot.execute(message);
+                log.info("Отправлено сообщение с ссылкой на видео: {}", videoObject.getLink());
+            } else {
+                log.warn("Ссылка {} невалидна или не является {}.", videoLink, "video");
+            }
+        }
+    }
+
+    private static void delayBetweenMessages(int delay) { // время задержки между запросами для соблюдения ограничений
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+            log.error("Ошибка во время ожидания между отправками постов", e);
+            Thread.currentThread().interrupt();
+        }
     }
 }

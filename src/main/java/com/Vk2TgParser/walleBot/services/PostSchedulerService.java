@@ -54,7 +54,7 @@ public class PostSchedulerService {
         log.info("Последний пост в файле: {}. Самый свежий пост: {}. Разница: {}",
                 lastPostID, latestPostID, difference);
 
-        if (difference >= 5) {
+        if (difference >= postCount) {
             log.info("Обрабатываем старые посты, начиная с ID: {}", lastPostID);
             processOldPostsRecursively(lastPostID, difference-postCount);  // Запуск рекурсивного метода для старых постов
         } else {
@@ -87,13 +87,13 @@ public class PostSchedulerService {
                 log.info("Обновляем lastPostID до: {}", newLastPostID);
                 lastPostIdService.updateLastPostId(newLastPostID);  // Записываем новый ID в файл
 
-                delayBetweenPosts(20000);
+                delayBetweenPosts(60000);
 
                 // Уменьшаем offset и продолжаем рекурсивный вызов
                 processOldPostsRecursively(newLastPostID, offset - postCount);
             } else {
                 log.info("Посты при проходе цикла не найдены");
-                delayBetweenPosts(20000);
+                delayBetweenPosts(30000);
                 // Уменьшаем offset и продолжаем рекурсивный вызов
                 processOldPostsRecursively(lastPostID, offset - postCount);
             }

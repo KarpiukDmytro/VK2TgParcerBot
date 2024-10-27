@@ -1,95 +1,95 @@
 package com.Vk2TgParser.walleBot.Configurations;
 
+import com.vk.api.sdk.client.VkApiClient;
+import com.vk.api.sdk.client.actors.UserActor;
+import com.vk.api.sdk.exceptions.ApiException;
+import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.objects.photos.PhotoSizes;
+import com.vk.api.sdk.objects.video.Video;
+import com.vk.api.sdk.objects.video.VideoFull;
+import com.vk.api.sdk.objects.wall.WallItem;
 import com.vk.api.sdk.objects.wall.WallpostAttachment;
-import com.vk.api.sdk.objects.wall.WallpostFull;
+import com.vk.api.sdk.queries.video.VideoGetQuery;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 @Getter
+@Setter
 @Slf4j
 public class PostData {
-    private final String text;
-    private final List<String> photoUrls;
-    @Getter
-    @Setter
-    private String firstPhotoFileId;
-    @Getter
+
+    private String text;
+    private List<String> photoUrls;
+    private List<VideoObject> videoObjects;
     private final Integer postID;
 
-    /* Переменные для будущей доработки */
-//    private List<String> audioUrls;
-//    private List<String> videoUrls;
-//    private List<String> DocumentUrls;
-
-    public PostData(String text, List<String> photoUrls, Integer postID) {
+    public PostData(String text, List<String> photoUrls, List<VideoObject> videoObjects, Integer postID) {
         this.text = text;
         this.photoUrls = photoUrls;
+        this.videoObjects = videoObjects; // Инициализация ссылок на видео
         this.postID = postID;
     }
-
-    /* Методы для будущей доработки */
-//  public List<String> getAudioUrls() {return audioUrls;}
-//  public List<String> getVideoUrls() {return videoUrls;}
-//  public List<String> getDocumentUrls() {return DocumentUrls;}
-
 
     @Override
     public String toString() {
         return "PostData{" +
                 "text = '" + text + '\'' +
                 ", photoUrls = " + photoUrls +
+                ", videoObjects = " + videoObjects + // Добавлено для вывода ссылок на видео
                 ", postID = "+ postID +
                 '}';
     }
 
-    // Метод для извлечения ссылок на фото
-    public static List<String> extractPhotoUrls(WallpostFull post) {
-
+    // Извлечение ссылок на фото
+    public static List<String> extractPhotoUrls(WallItem post) {
         List<String> photoUrls = new ArrayList<>();
-
         for (WallpostAttachment attachment : post.getAttachments()) {
-            if ("photo".equals(attachment.getType().getValue())) {
-                    List<PhotoSizes> sizes = attachment.getPhoto().getSizes();
-                    URI url = sizes.stream()
-                            .max(Comparator.comparingInt(size -> size.getHeight() * size.getWidth()))
-                            .map(PhotoSizes::getUrl)
-                            .orElse(null);
-                // Записываем в логи ссылку на фото
-                log.info("Ссылка на фото: {}", url);
-                // Если ссылка на фото присутствует, то добавляем её в список фотографий
-                if (url != null) {
-                    photoUrls.add(String.valueOf(url));
-                }
+            if (attachment.getPhoto() != null) {
+                photoUrls.add(attachment.getPhoto().getSizes().stream()
+                        .max(Comparator.comparingInt(PhotoSizes::getWidth))
+                        .map(size -> size.getUrl().toString())
+                        .orElse(null));
             }
         }
         return photoUrls;
     }
 
-    // Метод для извлечения ссылок на видео
-    public static List<String> extractVideoUrls(WallpostFull post) {
-        List<String> videoUrls = new ArrayList<>();
+    // Извлечение ссылок на видео через video.get
+    public static List<VideoObject> extractVideoObjects(WallItem post, VkApiClient vk, UserActor actor) {
+        List<VideoObject> videoObjects = new ArrayList<>();
 
-        for (WallpostAttachment attachment : post.getAttachments()) {
-            if ("video".equals(attachment.getType().getValue())) {
-                // Получаем информацию о видео
-                String videoUrl = String.valueOf(attachment.getVideo().getPlayer()); // Получаем ссылку на проигрыватель видео
-                // Записываем в логи ссылку на видео
-                log.info("Ссылка на видео: {}", videoUrl);
-                // Если ссылка на видео присутствует, добавляем её в список
-                if (videoUrl != null && !videoUrl.isEmpty()) {
-                    videoUrls.add(videoUrl);
+        if (post.getAttachments() != null) {
+            post.getAttachments().forEach(attachment -> {
+                if ("video".equals(attachment.getType().getValue())) {
+                    Long ownerId = attachment.getVideo().getOwnerId();
+                    Integer videoId = attachment.getVideo().getId();
+                    String title = attachment.getVideo().getTitle();
+
+                    try {
+                        VideoGetQuery videoGetQuery = vk.video()
+                                .get(actor)
+                                .videos(ownerId + "_" + videoId);
+                        List<VideoFull> videos = videoGetQuery.execute().getItems();
+
+                        if (!videos.isEmpty()) {
+                            Video video = videos.get(0);
+                            String videoUrl = String.valueOf(video.getPlayer()); // Получаем ссылку на видео
+                            videoObjects.add(new VideoObject(title,videoUrl));
+                        } else {
+                            log.warn("Не удалось получить видео для ID: {}", ownerId + "_" + videoId);
+                        }
+                    } catch (ApiException | ClientException e) {
+                        log.error("Ошибка при получении видео по ID: {}", ownerId + "_" + videoId, e);
+                    }
                 }
-            }
+            });
         }
-        return videoUrls;
+
+        return videoObjects;
     }
-
-
 }
