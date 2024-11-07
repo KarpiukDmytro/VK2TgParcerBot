@@ -24,9 +24,13 @@ import java.util.List;
 public class TelegramPostPublisher {
 
     private final DefaultAbsSender telegramBot;
+    private final int DEFAULT_DELAY_MS = 3000;
 
     @Value("${telegram.channel}")
     private String channelId;
+
+    @Value("${vk.groupID}")
+    private Integer groupID;
 
     public TelegramPostPublisher(DefaultAbsSender telegramBot) {
         this.telegramBot = telegramBot;
@@ -37,9 +41,78 @@ public class TelegramPostPublisher {
         for (PostData postData : posts) {
             try {
                 // Проверяем наличие текста
-                boolean hasText = postData.getText() != null && !postData.getText().isEmpty();
+                String postText = postData.getText();
+                boolean hasText = postText != null && !postText.isEmpty();
                 List<String> photoUrls = postData.getPhotoUrls();
                 List<VideoObject> videoObjects = postData.getVideoObjects();
+
+
+                /*if(!hasText) {
+                    if(!photoUrls.isEmpty()){
+                        if(photoUrls.size() == 1){
+                            sendSinglePhoto(photoUrls.get(0));
+                        } else {
+                            sendMediaGroup(postData, 0);
+                        }
+                    } else if(!videoObjects.isEmpty()){
+                        delayBetweenMessages(DEFAULT_DELAY_MS);
+                        sendVideoObjectsAsMessages(videoObjects);
+                    } else {
+                        log.warn("Нет текста, видео или фотографий для поста. Пропускаем.");
+                        continue;
+                    }
+                } else {
+                    if( postData.getText().length()<=1024) {
+                        if (photoUrls.size()==1){
+                            sendSinglePhotoWithCaption(photoUrls.get(0),postText);
+                        } else if (photoUrls.size()>1){
+                            sendMediaGroupWithCaption(postData, 0, postText);
+                        } else if(!videoObjects.isEmpty()){
+                            if(videoObjects.size() == 1){
+                                sendVideoWithCaption(videoObjects,postText);
+                            } else if(videoObjects.size()>1){
+                                sendVideoGroupWithCaption();
+                            }
+                        }
+                    } else {
+                        if (!photoUrls.isEmpty()) {
+                            SendMessage message = preparingMessageWithSnippet(postData);
+                            telegramBot.execute(message);
+                            log.info("Отправлено сообщение с текстом и первой ссылкой на фото");
+                        } else {
+                            // Если фото нет, просто отправляем текст
+                            SendMessage message = new SendMessage();
+                            message.setChatId(channelId);
+                            message.setText(postData.getText());
+                            telegramBot.execute(message);
+                            log.info("Отправлено сообщение с текстом");
+                        }
+
+                        // Если есть дополнительные фото
+                        if (photoUrls.size() == 2) {
+                            // Отправляем одно оставшееся фото
+                            delayBetweenMessages(DEFAULT_DELAY_MS);
+                            sendSinglePhoto(photoUrls.get(1));
+                        } else if (photoUrls.size() > 2) {
+                            // Отправляем оставшиеся фотографии как медиа-группу
+                            delayBetweenMessages(DEFAULT_DELAY_MS);
+                            List<InputMedia> media = sendMediaGroup(postData, 1);
+                            if (!media.isEmpty()) {
+                                SendMediaGroup sendMediaGroup = new SendMediaGroup();
+                                sendMediaGroup.setChatId(channelId);
+                                sendMediaGroup.setMedias(media);
+                                telegramBot.execute(sendMediaGroup);
+                                log.info("Отправлена медиа-группа с {} фото", media.size());
+                            } else {
+                                log.warn("Ни одной валидной ссылки на изображения для отправки.");
+                            }
+                        }
+                        if (!videoObjects.isEmpty()) {
+                            delayBetweenMessages(DEFAULT_DELAY_MS);
+                            sendVideoObjectsAsMessages(videoObjects);
+                        }
+                    }
+                }*/
 
                 // Если текста нет
                 if (!hasText) {
@@ -49,8 +122,12 @@ public class TelegramPostPublisher {
                     } else if (photoUrls.size() > 1) {
                         // Отправляем медиа-группу
                         sendMediaGroup(postData, 0);
+                    } else if (!videoObjects.isEmpty()) {
+                        delayBetweenMessages(DEFAULT_DELAY_MS);
+                        sendVideoObjectsAsMessages(videoObjects);
                     } else {
-                        log.warn("Нет текста и фотографий для поста. Пропускаем.");
+                        log.warn("Нет текста, видео или фотографий для поста. Пропускаем.");
+                        continue;
                     }
                 } else {
                     // Отправляем первое фото с текстом (если оно есть)
@@ -70,11 +147,11 @@ public class TelegramPostPublisher {
                     // Если есть дополнительные фото
                     if (photoUrls.size() == 2) {
                         // Отправляем одно оставшееся фото
-                        delayBetweenMessages(3000);
+                        delayBetweenMessages(DEFAULT_DELAY_MS);
                         sendSinglePhoto(photoUrls.get(1));
                     } else if (photoUrls.size() > 2) {
                         // Отправляем оставшиеся фотографии как медиа-группу
-                        delayBetweenMessages(3000);
+                        delayBetweenMessages(DEFAULT_DELAY_MS);
                         List<InputMedia> media = sendMediaGroup(postData, 1);
                         if (!media.isEmpty()) {
                             SendMediaGroup sendMediaGroup = new SendMediaGroup();
@@ -86,12 +163,14 @@ public class TelegramPostPublisher {
                             log.warn("Ни одной валидной ссылки на изображения для отправки.");
                         }
                     }
-
                     if (!videoObjects.isEmpty()) {
-                        delayBetweenMessages(3000);
+                        delayBetweenMessages(DEFAULT_DELAY_MS);
                         sendVideoObjectsAsMessages(videoObjects);
                     }
                 }
+
+                sendSinglePhoto("https://drive.usercontent.google.com/u/0/uc?id=1h-otbJmQPmZle8sIYpnvGlx7GrOQzDAr&export=download");
+
             } catch (TelegramApiException e) {
                 log.error("Ошибка при отправке поста в Telegram", e);
             } catch (Exception e) {
@@ -156,25 +235,34 @@ public class TelegramPostPublisher {
     }
 
     // Отправляем ссылки на видео отдельными сообщениями
-    public void sendVideoObjectsAsMessages(List<VideoObject> videoObjects) throws TelegramApiException {
+    private void sendVideoObjectsAsMessages(List<VideoObject> videoObjects) throws TelegramApiException {
         for (VideoObject videoObject : videoObjects) {
-            String videoLink = videoObject.getLink();
-            if (URLValidator.isVideoURLValid(videoLink)){
-                videoLink = (videoObject.getLink().contains("?"))
-                        ? videoObject.getLink().substring(0, videoObject.getLink().indexOf("?"))
-                        : videoObject.getLink();
-                String invisibleSnippet = "<a href='" + videoLink + "'>\u200B</a>";
+            String videoLink = getFormattedVideoLink(videoObject);
+
+            if (videoLink != null) {
                 SendMessage message = new SendMessage();
                 message.setChatId(channelId);
-                message.setText(invisibleSnippet +"\n"+ "<b>" + videoObject.getTitle() + "</b>");
+                message.setText("<a href='" + videoLink + "'>\u200B</a>\n<b>" + videoObject.getTitle() + "</b>");
                 message.enableHtml(true);
 
                 telegramBot.execute(message);
-                log.info("Отправлено сообщение с ссылкой на видео: {}", videoObject.getLink());
+                log.info("Отправлено сообщение с ссылкой на видео: {}", videoObject.getVideoUrl());
             } else {
-                log.warn("Ссылка {} невалидна или не является {}.", videoLink, "video");
+                log.warn("Ссылка {} невалидна или не является видео.", videoObject.getVideoUrl());
             }
         }
+    }
+
+    private String getFormattedVideoLink(VideoObject videoObject) {
+        String videoLink = videoObject.getVideoUrl();
+        if (URLValidator.isVideoURLValid(videoLink)) {
+            if (videoLink.contains("youtu")) {
+                return videoLink.contains("?") ? videoLink.substring(0, videoLink.indexOf("?")) : videoLink;
+            } else if (videoLink.contains("vk.com")) {
+                return "https://vk.com/video-" + groupID + "_" + videoObject.getVideoId();
+            }
+        }
+        return null;
     }
 
     private static void delayBetweenMessages(int delay) { // время задержки между запросами для соблюдения ограничений

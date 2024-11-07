@@ -79,7 +79,7 @@ public class PostData {
                         if (!videos.isEmpty()) {
                             Video video = videos.get(0);
                             String videoUrl = String.valueOf(video.getPlayer()); // Получаем ссылку на видео
-                            videoObjects.add(new VideoObject(title,videoUrl));
+                            videoObjects.add(new VideoObject(title,videoUrl,videoId));
                         } else {
                             log.warn("Не удалось получить видео для ID: {}", ownerId + "_" + videoId);
                         }

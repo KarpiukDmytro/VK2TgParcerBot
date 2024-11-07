@@ -93,7 +93,7 @@ public class PostSchedulerService {
                 processOldPostsRecursively(newLastPostID, offset - postCount);
             } else {
                 log.info("Посты при проходе цикла не найдены");
-                delayBetweenPosts(30000);
+                delayBetweenPosts(60000);
                 // Уменьшаем offset и продолжаем рекурсивный вызов
                 processOldPostsRecursively(lastPostID, offset - postCount);
             }

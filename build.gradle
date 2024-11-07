@@ -35,7 +35,7 @@ dependencies {
     implementation 'org.telegram:telegrambots-abilities:6.9.7.1'
 
     // Зависимость для работы с постами через JSON
-    implementation group: 'org.json', name: 'json', version: '20090211'
+    implementation group: 'org.json', name: 'json', version: '20231013'
 
 
     // Логирование (по желанию)

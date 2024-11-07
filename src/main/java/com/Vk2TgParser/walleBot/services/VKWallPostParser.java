@@ -21,8 +21,6 @@ import java.util.List;
 @Slf4j
 public class VKWallPostParser {
 
-    private final String accessToken;
-    private final Long adminID;
     private final VkApiClient vk;
     private final UserActor actor;
 
@@ -38,12 +36,8 @@ public class VKWallPostParser {
     public VKWallPostParser(@Value("${vk.adminID}") Long adminID,
                             @Value("${vk.accessToken}") String accessToken) {
 
-        this.adminID = adminID;
-        this.accessToken = accessToken;
-
         this.vk = new VkApiClient(HttpTransportClient.getInstance());
         this.actor = new UserActor(adminID, accessToken);
-        log.info("Инициализация VKWallPostParser с adminID: {} и accessToken: {}", adminID, accessToken);
     }
 
     // Метод для получения ID самого свежего поста

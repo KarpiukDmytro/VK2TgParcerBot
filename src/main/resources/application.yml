@@ -1,54 +1,53 @@
-# Working port for bot
 server:
-  port: 8081
+  port: 8082
 
 telegram:
-  # Link or ID of Telegram channel
-  channel: # your channel ID with "-"
-  # Telegram bot token
-  botToken: #your Telegram bot token 
+  # Ссылка или ID Telegram канала ParserBotTest
+  channel: -1002451356715
+  # Токен телеграм бота
+  botToken: 7314567198:AAFjOVu22Rm16hxMhXQrQWAkhEnhHn_pUVU
   # Имя бота
-  botUsername: #your bot name
+  botUsername: WallEPCbot
 
 vk:
-  # Personal access token, generated on website https://vkhost.github.io/
-  accessToken: # yourAccessToken
-  # group ID 
-  groupID: # yourGroupID
-  # Part name of the link of VK group (for example, vk.com/example)
-  domain: # your VK domain name
-  # ID of group administrator (ID of the person for whom the access token was generated)
-  adminID: # ID of admin user
+  # Персональный токен доступа, генерируется на сайте https://vkhost.github.io/
+  accessToken: vk1.a.Qsn0mKvUP4MoN-jDFyqu4tMQ1Mv0WNwc2ZG6-EpP845UdQqM8gkEDzgX2cFgdwKZRltoTg0Ivdm6NnIYjXirEkZb_fG6SBpJB3eduTxdukby5DinYghGbfIdHPzSNXc8czoeZvyy9pRL_bGazX7q4hYgixufh7_f3WzlLMDGEQTpstQJF3yTvoORhJ5M5MV63ZjkDMALFDI7IxTNyYGc4g
+  # ID группы
+  groupID: 161071862
+  # Частичное название ссылки на VK канал (например, vk.com/example)
+  domain: donetsk_walle
+  # ID администратора
+  adminID: 30294673
 
 filepath:
   lastPostID: "./src/data/lastPostID.txt"
 
 request:
-  count: 3  # Number of posts in one pass (min = 2, max = 100)
+  count: 3  # Количество постов (min = 2, max = 100)
   filter: OWNER  # Фильтр постов: "owner", "others", "all", "postponed", "suggests"
 
 settings:
-  timeToSleep: 60000  # Delay time between passes (1 minute in ms)
+  timeToSleep: 60000  # Время ожидания между циклами (в миллисекундах) (1 минута)
+
+  # для последующей доработки проекта
+
+  # skipReposts: true  # Не парсить репосты
+  # skipAudio: true # Don't parse audio
+  # skipPhoto: false # Parse photos
+  # skipVideo: false  # Parse videos
+  # skipDocument: true # Не парсить документы
+
+  # filtering:
+  # whitelist: '[]'  # Список слов для отбора постов
+  # blacklist: '[]'  # Список слов для исключения постов
 
 logging:
   level:
-    root: INFO  # Logging level for all packages
-    com.Vk2TgParser: DEBUG  # The logging level for your package
+    root: INFO  # Уровень логирования для всех пакетов
+    com.Vk2TgParser: DEBUG  # Уровень логирования для вашего пакета
   file:
-    path: ./logs/Vk2TgBot.log  # Path to file for saving logs
+    path: ./logs/Vk2TgBot.log  # Путь до файла для сохранения логов
   logback:
     rollingpolicy:
-      max-file-size: 10MB  # Max size of log-file
-      max-history: 14  # Number of Log-files which are seved
-
-  # For the future versions
-
-  # skipReposts: true  
-  skipAudio: true 
-  skipPhoto: false 
-  skipVideo: false 
-  # skipDocument: true
-
-  # filtering:
-  # whitelist: '[]'  
-  # blacklist: '[]'
+      max-file-size: 10MB  # Максимальный размер лог-файла
+      max-history: 14  # Количество лог-файлов, которые хранятся

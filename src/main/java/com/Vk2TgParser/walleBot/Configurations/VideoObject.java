@@ -1,15 +1,21 @@
 package com.Vk2TgParser.walleBot.Configurations;
 
-import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.ToString;
 
 @Getter
-@Setter
-@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class VideoObject {
 
-    private String title;
-    private String link;
+    private final String title;
+    private final String videoUrl;
+    private final Integer videoId;
 
+    public VideoObject(String title, String videoUrl, Integer videoId) {
+        this.title = title != null ? title : "Untitled";
+        this.videoUrl = videoUrl;
+        this.videoId = videoId;
+    }
 }
